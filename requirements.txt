@@ -3,4 +3,3 @@ langchain
 openai
 chromadb
 tiktoken
-sqlite3
