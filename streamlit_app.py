@@ -4,7 +4,18 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.chains import RetrievalQA
+import os
 
+# Everything is accessible via the st.secrets dict:
+st.write("LANCHAIN_API_BASE:", st.secrets["LANCHAIN_API_BASE"])
+#st.write("DB password:", st.secrets["db_password"])
+#st.write("My cool secrets:", st.secrets["my_cool_secrets"]["things_i_like"])
+
+# And the root-level secrets are also accessible as environment variables:
+st.write(
+    "Has environment variables been set:",
+    os.environ["LANCHAIN_API_BASE"] == st.secrets["LANCHAIN_API_BASE"],
+)
 def generate_response(uploaded_file, openai_api_key, query_text):
     # Load document if file is uploaded
     if uploaded_file is not None:
