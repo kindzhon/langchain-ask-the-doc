@@ -39,15 +39,7 @@ def load_data(uploaded_file):
 
 st.set_page_config(page_title="LangChain: Chat with pandas DataFrame", page_icon="🦜")
 st.title("🦜 LangChain: Chat with pandas DataFrame")
-st.write("LANCHAIN_API_BASE:", st.secrets["LANCHAIN_API_BASE"])
-#st.write("DB password:", st.secrets["db_password"])
-#st.write("My cool secrets:", st.secrets["my_cool_secrets"]["things_i_like"])
 
-# And the root-level secrets are also accessible as environment variables:
-st.write(
-    "Has environment variables been set:",
-    os.environ["LANCHAIN_API_BASE"] == st.secrets["LANCHAIN_API_BASE"],
-)
 uploaded_file = st.file_uploader(
     "Upload a Data file",
     type=list(file_formats.keys()),
